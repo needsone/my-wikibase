@@ -15,9 +15,9 @@ This documentation is a good start to put a wikibase in production with the dock
 * My favorite text editor emacs
 * I am also using Portainer to have a view on all docker container, volumes, images network ...
 * Hostnames:
- * query.exemple.com (wdqs)
- * qs.exemple.com (QuickStatements)
- * wiki.exemple.com (wiki)
+  * query.exemple.com (wdqs)
+  * qs.exemple.com (QuickStatements)
+  * wiki.exemple.com (wiki)
 * All SSL certificates i need for those 3 hostnames.
 * 1 sql dump of our previous installation and the content or /var/www/html/images on our previous Wikibase installation.
 
@@ -29,7 +29,7 @@ I am starting by the git clone of all the git folder of Wikibase.
 git clone https://github.com/wmde/wikibase-docker.git
 cd wikibase-docker
 ## My scripts and configuration files are on this git with script and config
-git clone  https://gitlab.com/PDIO-wikibase/wikibase-config.git
+git clone  https://github.com/lordcyfer/my-wikibase.git
 cp -r wikibase-config/config ./
 cp -r wikibase-config/script ./
 mv docker-compose.yml docker-compose.yml-orig
@@ -37,7 +37,7 @@ cp config/docker-compose.yml ./
 cp config/LocalSettings.php .
 ```
 
-Now we have to do the setting of docker-compile.yml to match our hostnames and admin basic settings. In LocalSettings.php we need to adjust the mail configuration and the setting for authentication. You can find this file in our git config/docker-compile.yml and config/LocalSettings.php
+Now we have to do the setting of docker-compile.yml to match our hostnames and admin basic settings. In Lo  calSettings.php we need to adjust the mail configuration and the setting for authentication. You can find this file in our git config/docker-compile.yml and config/LocalSettings.php
 
 **For the keys of our authentication between Wikibase and QuickStatements services we need 2 files and an entrance in our db that must have to match**
 
