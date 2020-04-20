@@ -95,8 +95,8 @@ Our docker network is configure to :
 
 This configuration open 443 with SSL and forward the request to the ports (8181, 8282 and 9191)
 
-Here is the nginx configuration for wdqs.
-
+Here is the nginx configuration for wdqs you just need to add the setting for wikidata and quickstatements
+(You replace server_name and the port)
 ```
 server {
        listen 80;
@@ -126,11 +126,13 @@ server {
 ```
 # Backup
 
+I put my backup script is ./scripts/
 ```
 cd data_backup
 docker exec wikibase-docker_mysql_1 mysqldump -u wikiuser -psqlpass my_wiki > backup.sql
 docker cp wikibase-docker_mysql_1:backup.sql ./
 docker cp wikibase-docker_wikibase_1:/var/www/html/ ./
+docker cp -a wikibase-docker_wdqs_1:/wdqs/data/data.jnl ./
 docker cp
 ```
 
@@ -173,7 +175,7 @@ wikibase-docker-dev_wdqs-updater_1  /entrypoint.sh /runUpdate.sh Exit 1
 ```
 The only way to repair that is too reset **EVERYTHING**.
 
-## autocomplete in the query service uses wrong prefix
+## autocomplete in the query service uses wrong prefix  
 
 ## guzzlehttp/streams
 on _wikibase_1 /var/www/html/composer.json change
