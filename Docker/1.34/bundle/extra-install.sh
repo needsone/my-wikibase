@@ -4,7 +4,6 @@ php /var/www/html/extensions/CirrusSearch/maintenance/updateSearchIndexConfig.ph
 php /var/www/html/extensions/CirrusSearch/maintenance/forceSearchIndex.php --skipParse
 php /var/www/html/extensions/CirrusSearch/maintenance/forceSearchIndex.php --skipLinks --indexOnSkip
 
-
 n=0
 until [ $n -ge 5 ]
 do

@@ -21,12 +21,5 @@ wfLoadExtension( 'UniversalLanguageSelector' );
 # cldr
 wfLoadExtension( 'cldr' );
 
-# EntitySchema
+#EntitySchema
 wfLoadExtension( 'EntitySchema' );
-
-# Widgets
-require_once "$IP/extensions/Widgets/Widgets.php";
-
-# Gadgets
-wfLoadExtension( 'Gadgets' );
-

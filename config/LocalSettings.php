@@ -8,7 +8,7 @@
  * ----------------------------------------------------------------------------------------
  */
 
-$wgServer="https://wiki.personaldata.io";
+$wgServer="https://wiki.exemple.com";
 
 ## Database settings
 ## Environment variables will be substituted in here.
@@ -264,7 +264,7 @@ $wgConfirmAccountRequestFormItems = array(
 
 $wgAccountRequestThrottle = 42;
 
-$wgConfirmAccountContact = 'confirmation@personaldata.io';
+$wgConfirmAccountContact = 'confirmation@exemple.com';
 
 wfLoadExtension( 'Echo' );
 

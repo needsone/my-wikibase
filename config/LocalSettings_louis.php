@@ -49,7 +49,7 @@ $wgRCMaxAge = 365 * 24 * 3600;
 wfLoadSkin( 'Vector' );
 
 ## Wikibase
-$wgServer="https://wiki.yourneeds.ch";
+$wgServer="https://wiki.exemple.com";
 
 # Load Wikibase repo, client & lib with the example / default settings.
 require_once "$IP/extensions/Wikibase/lib/WikibaseLib.php";
@@ -149,7 +149,7 @@ $wgShowExceptionDetails = true;
 $wgSMTP = [
     'host' => 'ssl://smtp.gmail.com',
     'IDHost' => 'gmail.com',
-    'localhost' => 'wiki.personaldata.io',
+    'localhost' => 'wiki.exemple.com',
     'port' => 465,
     'username' => 'dsfknaf.kadsnf.kadwsxf@gmail.com',
     'password' => 'fads,jfhsar,dfh,ashdf,jhasr,djfh,dsy',
@@ -246,7 +246,7 @@ $wgUsePrivateIPs = true;
 $wgSquidServers = array('83.166.154.137','172.18.0.1');
 $wgUseSquid = true;
 
-$wgConfirmAccountContact = 'louis@yourneeds.ch';
+$wgConfirmAccountContact = 'louis@exemple.com';
 
 wfLoadExtension( 'Echo' );
 
