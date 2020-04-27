@@ -8,6 +8,9 @@
  * ----------------------------------------------------------------------------------------
  */
 
+## wgServer
+${DOLLAR}="wiki.exemple.com";
+
 ## Database settings
 ## Environment variables will be substituted in here.
 ${DOLLAR}wgDBserver = "${DB_SERVER}";
