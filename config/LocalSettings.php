@@ -265,7 +265,7 @@ $wgConfirmAccountRequestFormItems = array(
 $wgAccountRequestThrottle = 42;
 
 $wgConfirmAccountContact = 'confirmation@exemple.com';
-
+#
 wfLoadExtension( 'Echo' );
 
 wfLoadExtension( 'CodeEditor' );
