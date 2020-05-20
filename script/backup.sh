@@ -16,9 +16,9 @@ cd  $FOLDER
 
 # sudo -u louis docker cp -a wikibase-docker_wikibase_1:/var/www ./ && tar -czf www.tgz www
 docker cp -a wikibase-docker_wikibase_1:/quickstatements/data/qs-oauth.json ./
+docker cp -a docker cp config/oauth.ini wikibase-docker_quickstatements_1:/quickstatements/oauth.ini ./
 docker cp -a wikibase-docker_wdqs_1:/wdqs/data/data.jnl ./
 docker exec wikibase-docker_mysql_1 mysqldump -u wikiuser -psqlpass my_wiki > db.sql
-
 docker exec wikibase-docker_wikibase_1 rm /tmp/www_images.tgz
 docker exec wikibase-docker_wikibase_1 tar -zcvf /tmp/www_images.tgz /var/www/html/images
 docker exec wikibase-docker_wikibase_1 cat /tmp/www_images.tgz >  ./www_images.tgz
