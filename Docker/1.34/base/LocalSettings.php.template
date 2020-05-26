@@ -9,8 +9,7 @@
  */
 
 ## wgServer
-${DOLLAR}="wiki.exemple.com";
-
+${DOLLAR}wgServer="${WB_PUBLIC_SCHEME_HOST_AND_PORT}";
 ## Database settings
 ## Environment variables will be substituted in here.
 ${DOLLAR}wgDBserver = "${DB_SERVER}";

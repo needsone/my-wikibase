@@ -12,7 +12,6 @@ tar xzf Wikibase.tar.gz;
 FROM mediawiki:1.34 as collector
 COPY --from=fetcher /Wikibase /var/www/html/extensions/Wikibase
 
-
 FROM composer as composer
 COPY --from=collector /var/www/html /var/www/html
 WORKDIR /var/www/html/

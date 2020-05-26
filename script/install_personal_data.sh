@@ -17,6 +17,7 @@ read OK
 
 ## Download & install new extensions
 mkdir extension_to_install
+cp ./script/download-extension.sh ./extension_to_install/download-extension.sh
 cd  extension_to_install
 for extension in Widgets Gadgets MobileFrontend ConfirmEdit Nuke DeleteBatch SpamBlacklist WikibaseQualityConstraints ConfirmAccount SyntaxHighlight_GeSHi CodeMirror Echo CodeEditor VisualEditor
 do

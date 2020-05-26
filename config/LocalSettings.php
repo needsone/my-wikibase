@@ -150,15 +150,6 @@ $wgPasswordPolicy['policies']['default']['PasswordCannotMatchUsername'] = true;
 $wgShowDBErrorBacktrace = true;
 $wgShowExceptionDetails = true;
 
-#$wgSMTP = array(
-# 'host' => 'mail.infomaniak.com',
-# 'IDHost' => 'yourneeds.ch',
-# 'port' => 587,
-# 'username' => 'perso@yourneeds.ch',
-# 'password' => 'B9pCI34SQuHs',
-# 'auth' => true
-# );
-
 $wgSMTP = [
     'host' => 'ssl://smtp.gmail.com',
     'IDHost' => 'gmail.com',
@@ -208,8 +199,8 @@ $wgWBRepoSettings['formatterUrlProperty'] = 'P49';
 #wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ]);
 
 #$wgCaptchaClass = 'ReCaptchaNoCaptcha';
-#$wgReCaptchaSiteKey = '6Lc0yaoUAAAAADSzyXSzevfitfd1NxJUUHGGVRHW';
-#$wgReCaptchaSecretKey = '6Lc0yaoUAAAAAKz8IZYivr8AuIZu47z6G_iniBE2';
+#$wgReCaptchaSiteKey = 'XXXXXXXX';
+#$wgReCaptchaSecretKey = 'XXXXXXX';
 $wgMainCacheType    = CACHE_ANYTHING;
 
 $wgCaptchaTriggers['edit']          = false;
