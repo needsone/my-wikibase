@@ -1,12 +1,15 @@
 <?php
 /**
  * ----------------------------------------------------------------------------------------
- * This file is provided by the wikibase/wikibase docker image.
+ * ThisOB file is provided by the wikibase/wikibase docker image.
  * This file will be passed through envsubst which will replace "$" with "$".
  * If you want to change MediaWiki or Wikibase settings then either mount a file over this
  * template and or run a different entrypoint.
  * ----------------------------------------------------------------------------------------
  */
+
+$wgServer="https://wiki.exemple.com";
+
 ## Database settings
 ## Environment variables will be substituted in here.
 $wgDBserver = "mysql.svc:3306";
@@ -26,18 +29,17 @@ $wgDebugLogGroups = array(
 # TODO pass in the rest of this with env vars?
 $wgShellLocale = "en_US.utf8";
 $wgLanguageCode = "en";
-$wgSitename = "Wikibase SuperMegaYukulele data";
+$wgSitename = "Wikibase Personal data";
 $wgMetaNamespace = "Project";
 
 # Configured web paths & short URLs
-# This allows use of the /wiki path
+# This allows use of the /wiki/* path
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-
 $wgScriptPath = "/w";        // this should already have been configured this way
 $wgArticlePath = "/wiki/$1";
 
 #Set Secret
-$wgSecretKey = "secretkey";
+$wgSecretKey = "XXXXXXXX";
 
 ## RC Age
 # https://www.mediawiki.org/wiki/Manual:
@@ -50,7 +52,6 @@ wfLoadSkin( 'Vector' );
 
 ## Wikibase
 # Load Wikibase repo, client & lib with the example / default settings.
-require_once "$IP/extensions/Wikibase/vendor/autoload.php";
 require_once "$IP/extensions/Wikibase/lib/WikibaseLib.php";
 require_once "$IP/extensions/Wikibase/repo/Wikibase.php";
 require_once "$IP/extensions/Wikibase/repo/ExampleSettings.php";
@@ -63,6 +64,9 @@ $wgGroupPermissions['sysop']['mwoauthproposeconsumer'] = true;
 $wgGroupPermissions['sysop']['mwoauthmanageconsumer'] = true;
 $wgGroupPermissions['sysop']['mwoauthviewprivate'] = true;
 $wgGroupPermissions['sysop']['mwoauthupdateownconsumer'] = true;
+
+$wgGroupPermissions['ninja']['deletelogentry'] = true;
+$wgGroupPermissions['ninja']['deleterevision'] = true;
 
 # WikibaseImport
 require_once "$IP/extensions/WikibaseImport/WikibaseImport.php";
@@ -79,6 +83,7 @@ wfLoadExtension( 'UniversalLanguageSelector' );
 
 # cldr
 wfLoadExtension( 'cldr' );
+
 
 # item-term property-term createtalk item-redirect createaccount property-create item-merge writeapi
 
@@ -137,7 +142,7 @@ $wgGroupPermissions['editors']['item-merge'] = true;
 #$wgGroupPermissions['emailconfirmed']['skipcaptcha'] = true;
 $ceAllowConfirmedEmail = true;
 
-$wgPasswordPolicy['policies']['default']['MinimalPasswordLength'] = 10;
+$wgPasswordPolicy['policies']['default']['MinimalPasswordLength'] = 6;
 $wgPasswordPolicy['policies']['default']['MaximalPasswordLength'] = 128;
 #$wgPasswordPolicy['policies']['default']['PasswordNotInLargeBlacklist'] = true;
 $wgPasswordPolicy['policies']['default']['PasswordCannotMatchUsername'] = true;
@@ -145,13 +150,22 @@ $wgPasswordPolicy['policies']['default']['PasswordCannotMatchUsername'] = true;
 $wgShowDBErrorBacktrace = true;
 $wgShowExceptionDetails = true;
 
+#$wgSMTP = array(
+# 'host' => 'mail.infomaniak.com',
+# 'IDHost' => 'yourneeds.ch',
+# 'port' => 587,
+# 'username' => 'perso@yourneeds.ch',
+# 'password' => 'B9pCI34SQuHs',
+# 'auth' => true
+# );
+
 $wgSMTP = [
     'host' => 'ssl://smtp.gmail.com',
     'IDHost' => 'gmail.com',
-    'localhost' => 'wiki.exemple.com',
+    'localhost' => 'wiki.example.com',
     'port' => 465,
-    'username' => 'Superme@gmail.com',
-    'password' => 'SuperMegaYukulele',
+    'username' => '42@gmail.com',
+    'password' => '42	',
     'auth' => true
 ];
 
@@ -186,15 +200,16 @@ $wgMFDefaultSkinClass = 'SkinVector';
 $wgMFNearbyEndpoint = 'http://en.m.wikipedia.org/w/api.php';
 $wgMFNearby = true;
 
+#$wgLogo = "/var/www/html/resources/assets/LogoPersonal_web.png";
+
 $wgWBRepoSettings['formatterUrlProperty'] = 'P49';
 
-wfLoadExtension( 'ConfirmEdit' );
-wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ]);
+#wfLoadExtension( 'ConfirmEdit' );
+#wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ]);
 
-$wgCaptchaClass = 'ReCaptchaNoCaptcha';
-$wgReCaptchaSiteKey = 'XXXXXXXX';
-$wgReCaptchaSecretKey = 'XXXXXXXX';
-
+#$wgCaptchaClass = 'ReCaptchaNoCaptcha';
+#$wgReCaptchaSiteKey = '6Lc0yaoUAAAAADSzyXSzevfitfd1NxJUUHGGVRHW';
+#$wgReCaptchaSecretKey = '6Lc0yaoUAAAAAKz8IZYivr8AuIZu47z6G_iniBE2';
 $wgMainCacheType    = CACHE_ANYTHING;
 
 $wgCaptchaTriggers['edit']          = false;
@@ -209,7 +224,7 @@ $wgGroupPermissions['*'            ]['skipcaptcha'] = false;
 $wgGroupPermissions['user'         ]['skipcaptcha'] = false;
 $wgGroupPermissions['autoconfirmed']['skipcaptcha'] = false;
 $wgGroupPermissions['bot'          ]['skipcaptcha'] = true; // registered bots
-$wgGroupPermissions['sysop'        ]['skipcaptcha'] = true;
+$wgGroupPermissions['sysop'        ]['	skipcaptcha'] = true;
 $wgGroupPermissions['editors'        ]['skipcaptcha'] = true;
 
 wfLoadExtension( 'Nuke' );
@@ -223,6 +238,11 @@ $wgGroupPermissions['sysop']['deletebatch'] = true;
 $wgEnableUploads = true; # Enable uploads
 $wgGroupPermissions['user']['upload'] = true;
 $wgGroupPermissions['editors']['upload'] = true;
+
+$wgUsePrivateIPs = true;
+#$wgUseSquid = true;
+
+$wgSquidServersNoPurge = array('42.166.42.137','172.18.0.1');
 
 # ConfirmAccount
 require_once "$IP/extensions/ConfirmAccount/ConfirmAccount.php";
@@ -241,15 +261,105 @@ $wgConfirmAccountRequestFormItems = array(
  'TermsOfService'  => array( 'enabled' => false ),
 );
 
-$wgConfirmAccountContact = 'louis@yourneeds.ch';
+$wgAccountRequestThrottle = 42;
 
+$wgConfirmAccountContact = 'confirmation@exemple.com';
+#
 wfLoadExtension( 'Echo' );
 
 wfLoadExtension( 'CodeEditor' );
-$wgDefaultUserOptions['usebetatoolbar'] = 1; // user option provided by WikiEditor extension
 
 wfLoadExtension( 'CodeMirror' );
+$wgDefaultUserOptions['usecodemirror'] = 1;
 
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 
 wfLoadExtension( 'WikibaseQualityConstraints' );
+
+#$wgUseCdn = true;
+#$wgCdnServersNoPurge = [];
+#$wgCdnServersNoPurge[] = "172.18.0.0/24";
+
+
+$wgWBRepoSettings['statementSections'] = [
+        'item' => [
+                'statements' => null,
+                'identifiers' => [
+                        'type' => 'dataType',
+                        'dataTypes' => [ 'external-id' ],
+                ],
+        ],
+        'property' => [
+                'statements' => null,
+                'constraints' => [
+                        'type' => 'propertySet',
+                        'propertyIds' => [ 'P300' ]
+                ]
+        ]
+];
+
+$wgWBQualityConstraintsInstanceOfId = 'P3';
+$wgWBQualityConstraintsSubclassOfId = 'P4';
+$wgWBQualityConstraintsPropertyConstraintId = 'P300';
+$wgWBQualityConstraintsExceptionToConstraintId = 'P301';
+$wgWBQualityConstraintsConstraintStatusId = 'P302';
+$wgWBQualityConstraintsMandatoryConstraintId = 'Q3844';
+$wgWBQualityConstraintsSuggestionConstraintId = 'Q3845';
+$wgWBQualityConstraintsDistinctValuesConstraintId = 'Q3846';
+$wgWBQualityConstraintsMultiValueConstraintId = 'Q3847';
+$wgWBQualityConstraintsUsedAsQualifierConstraintId = 'Q3848';
+$wgWBQualityConstraintsSingleValueConstraintId = 'Q3849';
+$wgWBQualityConstraintsSymmetricConstraintId = 'Q3850';
+$wgWBQualityConstraintsTypeConstraintId = 'Q3851';
+$wgWBQualityConstraintsValueTypeConstraintId = 'Q3852';
+$wgWBQualityConstraintsInverseConstraintId = 'Q3853';
+$wgWBQualityConstraintsItemRequiresClaimConstraintId = 'Q3854';
+$wgWBQualityConstraintsValueRequiresClaimConstraintId = 'Q3855';
+$wgWBQualityConstraintsConflictsWithConstraintId = 'Q3856';
+$wgWBQualityConstraintsOneOfConstraintId = 'Q3857';
+$wgWBQualityConstraintsMandatoryQualifierConstraintId = 'Q3858';
+$wgWBQualityConstraintsAllowedQualifiersConstraintId = 'Q3859';
+$wgWBQualityConstraintsRangeConstraintId = 'Q3860';
+$wgWBQualityConstraintsDifferenceWithinRangeConstraintId = 'Q3861';
+$wgWBQualityConstraintsCommonsLinkConstraintId = 'Q3862';
+$wgWBQualityConstraintsContemporaryConstraintId = 'Q3863';
+$wgWBQualityConstraintsFormatConstraintId = 'Q3864';
+$wgWBQualityConstraintsUsedForValuesOnlyConstraintId = 'Q3865';
+$wgWBQualityConstraintsUsedAsReferenceConstraintId = 'Q3866';
+$wgWBQualityConstraintsNoBoundsConstraintId = 'Q3867';
+$wgWBQualityConstraintsAllowedUnitsConstraintId = 'Q3868';
+$wgWBQualityConstraintsSingleBestValueConstraintId = 'Q3869';
+$wgWBQualityConstraintsAllowedEntityTypesConstraintId = 'Q3870';
+$wgWBQualityConstraintsCitationNeededConstraintId = 'Q3871';
+$wgWBQualityConstraintsPropertyScopeConstraintId = 'Q3872';
+$wgWBQualityConstraintsClassId = 'P29';
+$wgWBQualityConstraintsRelationId = 'P304';
+$wgWBQualityConstraintsInstanceOfRelationId = 'Q3873';
+$wgWBQualityConstraintsSubclassOfRelationId = 'Q3874';
+$wgWBQualityConstraintsInstanceOrSubclassOfRelationId = 'Q3875';
+$wgWBQualityConstraintsPropertyId = 'P30';
+$wgWBQualityConstraintsQualifierOfPropertyConstraintId = 'P306';
+$wgWBQualityConstraintsMinimumQuantityId = 'P307';
+$wgWBQualityConstraintsMaximumQuantityId = 'P308';
+$wgWBQualityConstraintsMinimumDateId = 'P309';
+$wgWBQualityConstraintsMaximumDateId = 'P310';
+$wgWBQualityConstraintsNamespaceId = 'P311';
+$wgWBQualityConstraintsFormatAsARegularExpressionId = 'P312';
+$wgWBQualityConstraintsSyntaxClarificationId = 'P313';
+$wgWBQualityConstraintsConstraintScopeId = 'P314';
+$wgWBQualityConstraintsSeparatorId = 'P315';
+$wgWBQualityConstraintsConstraintCheckedOnMainValueId = 'Q3876';
+$wgWBQualityConstraintsConstraintCheckedOnQualifiersId = 'Q3877';
+$wgWBQualityConstraintsConstraintCheckedOnReferencesId = 'Q3878';
+$wgWBQualityConstraintsNoneOfConstraintId = 'Q3879';
+$wgWBQualityConstraintsIntegerConstraintId = 'Q3880';
+$wgWBQualityConstraintsWikibaseItemId = 'Q3881';
+$wgWBQualityConstraintsWikibasePropertyId = 'Q3882';
+$wgWBQualityConstraintsWikibaseLexemeId = 'Q3883';
+$wgWBQualityConstraintsWikibaseFormId = 'Q3884';
+$wgWBQualityConstraintsWikibaseSenseId = 'Q3885';
+$wgWBQualityConstraintsWikibaseMediaInfoId = 'Q3886';
+$wgWBQualityConstraintsPropertyScopeId = 'P316';
+$wgWBQualityConstraintsAsMainValueId = 'Q3887';
+$wgWBQualityConstraintsAsQualifiersId = 'Q3888';
+$wgWBQualityConstraintsAsReferencesId = 'Q3889';

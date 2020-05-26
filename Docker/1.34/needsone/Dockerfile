@@ -1,8 +1,6 @@
 FROM ubuntu:xenial as fetcher
 
-RUN apt-get update && \
-    apt-get install --yes --no-install-recommends unzip=6.* jq=1.* curl=7.* ca-certificates=201* && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install --yes --no-install-recommends unzip=6.* jq=1.* curl=7.* ca-certificates=201* && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY download-extension.sh .
 ADD https://github.com/wikidata/WikibaseImport/archive/master.tar.gz /WikibaseImport.tar.gz
@@ -16,7 +14,6 @@ bash download-extension.sh EntitySchema;\
 bash download-extension.sh Widgets;\
 bash download-extension.sh Scribunto;\
 bash download-extension.sh Gadgets;\
-bash download-extension.sh EmbedVideo;\
 bash download-extension.sh MobileFrontend;\
 bash download-extension.sh ConfirmEdit;\
 bash download-extension.sh Nuke;\
@@ -36,8 +33,9 @@ tar xzf cldr.tar.gz;\
 tar xzf WikibaseImport.tar.gz;\
 tar xzf EntitySchema.tar.gz;\
 tar xzf Widgets.tar.gz;\
+tar xzf Scribunto.tar.gz;\
 tar xzf Gadgets.tar.gz;\
-tar xzf EmbedVideo.tar.gz;\
+tar xzf MobileFrontend.tar.gz;\
 tar xzf ConfirmEdit.tar.gz;\
 tar xzf Nuke.tar.gz;\
 tar xzf DeleteBatch.tar.gz;\
@@ -49,7 +47,7 @@ tar xzf Echo.tar.gz;\
 tar xzf CodeEditor.tar.gz;\
 rm ./*.tar.gz
 
-FROM wikibase/wikibase:1.34 as collector
+FROM needswiki:base as collector
 COPY --from=fetcher /WikibaseImport-master /var/www/html/extensions/WikibaseImport
 COPY --from=fetcher /Elastica /var/www/html/extensions/Elastica
 COPY --from=fetcher /OAuth /var/www/html/extensions/OAuth
@@ -61,7 +59,6 @@ COPY --from=fetcher /EntitySchema /var/www/html/extensions/EntitySchema
 COPY --from=fetcher /Widgets /var/www/html/extensions/Widgets
 COPY --from=fetcher /Scribunto /var/www/html/extensions/Scribunto
 COPY --from=fetcher /Gadgets /var/www/html/extensions/Gadgets
-COPY --from=fetcher /EmbedVideo /var/www/html/extensions/MobileFrontend
 COPY --from=fetcher /MobileFrontend /var/www/html/extensions/EntitySchema
 COPY --from=fetcher /ConfirmEdit /var/www/html/extensions/ConfirmEdit
 COPY --from=fetcher /Nuke /var/www/html/extensions/Nuke
@@ -81,9 +78,9 @@ RUN composer install --no-dev
 
 FROM wikibase/wikibase:1.34
 
-RUN apt-get update && \
-    apt-get install --yes --no-install-recommends jq=1.* && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && \
+#    apt-get install --yes --no-install-recommends jq=1.* && \
+#    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer /var/www/html /var/www/html
 COPY LocalSettings.php.wikibase-bundle.template /LocalSettings.php.wikibase-bundle.template

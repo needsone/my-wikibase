@@ -143,8 +143,9 @@ docker cp
 ```
 cd data_backup
 cat backup.sql | docker exec wikibase-docker_mysql_1 mysql -u wikiuser -psqlpass my_wiki
-docker cp -a wikibase-docker-dev_wikibase_1:/var/www/html/ ./
-cp -r html wikibase-docker-dev_wikibase_1:/var/www/
+docker exec cp -a html wikibase-docker-dev_wikibase_1:/var/www/
+docker cp ./data.jnl wikibase-docker_wdqs_1:/wdqs/data/data.jnl
+
 ```
 # New configuration
 
