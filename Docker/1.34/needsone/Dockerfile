@@ -81,7 +81,7 @@ WORKDIR /var/www/html/
 RUN rm /var/www/html/composer.lock
 RUN composer install --no-dev
 
-FROM needsone/wikibase:1.34
+FROM wikibase/wikibase:1.34
 
 #RUN apt-get update && \
 #    apt-get install --yes --no-install-recommends jq=1.* && \
