@@ -92,7 +92,7 @@ $wgShowExceptionDetails = true;
 $wgSMTP = [
     'host' => 'ssl://smtp.gmail.com',
     'IDHost' => 'gmail.com',
-    'localhost' => 'wiki.yourneeds.ch',
+    'localhost' => 'wiki.424242.com',
     'port' => 465,
     'username' => '42@gmail.com',
     'password' => '42	',
@@ -134,12 +134,6 @@ $wgMFNearby = true;
 
 $wgWBRepoSettings['formatterUrlProperty'] = 'P49';
 
-#wfLoadExtension( 'ConfirmEdit' );
-#wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ]);
-
-#$wgCaptchaClass = 'ReCaptchaNoCaptcha';
-#$wgReCaptchaSiteKey = '6Lc0yaoUAAAAADSzyXSzevfitfd1NxJUUHGGVRHW';
-#$wgReCaptchaSecretKey = '6Lc0yaoUAAAAAKz8IZYivr8AuIZu47z6G_iniBE2';
 $wgMainCacheType    = CACHE_ANYTHING;
 
 $wgCaptchaTriggers['edit']          = false;
@@ -150,12 +144,12 @@ $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 $wgCaptchaTriggers['login']      = true;
 
-$wgGroupPermissions['*'            ]['skipcaptcha'] = false;
-$wgGroupPermissions['user'         ]['skipcaptcha'] = false;
+$wgGroupPermissions['*']['skipcaptcha'] = false;
+$wgGroupPermissions['user']['skipcaptcha'] = false;
 $wgGroupPermissions['autoconfirmed']['skipcaptcha'] = false;
-$wgGroupPermissions['bot'          ]['skipcaptcha'] = true; // registered bots
-$wgGroupPermissions['sysop'        ]['	skipcaptcha'] = true;
-$wgGroupPermissions['editors'        ]['skipcaptcha'] = true;
+$wgGroupPermissions['bot']['skipcaptcha'] = true; // registered bots
+$wgGroupPermissions['sysop']['skipcaptcha'] = true;
+$wgGroupPermissions['editors']['skipcaptcha'] = true;
 
 wfLoadExtension( 'Nuke' );
 $wgGroupPermissions['sysop']['nuke'] = true;
@@ -170,10 +164,7 @@ $wgGroupPermissions['user']['upload'] = true;
 $wgGroupPermissions['editors']['upload'] = true;
 
 $wgUsePrivateIPs = true;
-#$wgSquidServers = array('83.166.154.137','172.18.0.1');
-#$wgUseSquid = true;
-
-$wgSquidServersNoPurge = array('83.166.154.137','172.18.0.1');
+$wgSquidServersNoPurge = array('42.42.42.42','172.18.0.1');
 
 # ConfirmAccount
 require_once "$IP/extensions/ConfirmAccount/ConfirmAccount.php";
