@@ -1,0 +1,12 @@
+{
+	"extends": "stylelint-config-wikimedia",
+	"rules": {
+		"selector-max-id": null,
+		"no-duplicate-selectors": null,
+		"no-descending-specificity": null,
+		"declaration-no-important": null
+	},
+	"ignoreFiles": [
+		"lib/resources/lib/**"
+	]
+}

@@ -1,0 +1,66 @@
+<?php
+
+namespace Wikibase\Lib\Tests\Formatters;
+
+use DataValues\StringValue;
+use PHPUnit4And6Compat;
+use Wikibase\DataModel\Entity\PropertyId;
+use Wikibase\DataModel\Snak\PropertyValueSnak;
+use Wikibase\Lib\Formatters\EscapingSnakFormatter;
+use Wikibase\Lib\Formatters\SnakFormatter;
+
+/**
+ * @covers \Wikibase\Lib\Formatters\EscapingSnakFormatter
+ *
+ * @group SnakFormatters
+ * @group DataValueExtensions
+ * @group Wikibase
+ *
+ * @license GPL-2.0-or-later
+ * @author Daniel Kinzler
+ */
+class EscapingSnakFormatterTest extends \PHPUnit\Framework\TestCase {
+	use PHPUnit4And6Compat;
+
+	/**
+	 * @param string $output
+	 *
+	 * @return SnakFormatter
+	 */
+	private function getSnakFormatter( $output ) {
+		$formatter = $this->getMock( SnakFormatter::class );
+
+		$formatter->expects( $this->any() )
+			->method( 'formatSnak' )
+			->will( $this->returnValue( $output ) );
+
+		$formatter->expects( $this->any() )
+			->method( 'getFormat' )
+			->will( $this->returnValue( SnakFormatter::FORMAT_PLAIN ) );
+
+		return $formatter;
+	}
+
+	public function testFormatSnak() {
+		$formatter = new EscapingSnakFormatter(
+			SnakFormatter::FORMAT_HTML,
+			$this->getSnakFormatter( '<foo>' ),
+			'htmlspecialchars'
+		);
+
+		$p1 = new PropertyId( 'P77' );
+		$snak = new PropertyValueSnak( $p1, new StringValue( 'DUMMY' ) );
+		$this->assertSame( '&lt;foo&gt;', $formatter->formatSnak( $snak ) );
+	}
+
+	public function testGetFormat() {
+		$formatter = new EscapingSnakFormatter(
+			'text/whatever',
+			$this->getSnakFormatter( '<foo>' ),
+			'htmlspecialchars'
+		);
+
+		$this->assertSame( 'text/whatever', $formatter->getFormat() );
+	}
+
+}

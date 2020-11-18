@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido",
+			"Taresi",
+			"Akapochtli"
+		]
+	},
+	"wikibase-edit": "xicpatla",
+	"wikibase-cancel": "moxitiniz",
+	"wikibase-add": "occe",
+	"wikibase-description-empty": "Ahmō ōnēzcāyōtīlōc tlahtōlli",
+	"wikibase-statementsection-statements": "Tlahtōlli",
+	"wikibase-newentity-language": "Tlahtōlli:",
+	"wikibase-history-title-with-label": "«$2» ($1) ītlaceppahuiliztlahtōllo",
+	"wikibase-history-title-without-label": "($1) tlahcuilōlloh ītlaihittaliz"
+}

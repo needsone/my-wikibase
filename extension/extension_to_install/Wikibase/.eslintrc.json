@@ -1,0 +1,51 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia/client",
+		"wikimedia/jquery"
+	],
+	"globals": {
+		"mw": false,
+		"module": false,
+		"dataTypes": false,
+		"dataValues": false,
+		"OO": false,
+		"require": false,
+		"util": false,
+		"valueFormatters": false,
+		"valueParsers": false,
+		"wikibase": false
+	},
+	"rules": {
+		"compat/compat": "error",
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1,
+				"MemberExpression": "off"
+			}
+		],
+		"max-len": "off",
+		"new-cap": "off",
+		"no-underscore-dangle": "off",
+		"no-use-before-define": [
+			"error",
+			"nofunc"
+		],
+		"no-unused-vars": [
+			"error",
+			{
+				"args": "none"
+			}
+		],
+		"no-useless-concat": "off",
+		"one-var": "off",
+		"operator-linebreak": "off",
+		"valid-jsdoc": "off",
+		"vars-on-top": "off"
+	},
+	"plugins": [
+		"compat"
+	]
+}

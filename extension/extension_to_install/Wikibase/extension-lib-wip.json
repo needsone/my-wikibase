@@ -1,0 +1,41 @@
+{
+	"name": "WikibaseLib",
+	"type": "wikibase",
+	"author": [
+		"The Wikidata team"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:WikibaseLib",
+	"descriptionmsg": "wikibase-lib-desc",
+	"license-name": "GPL-2.0-or-later",
+	"requires": {
+		"MediaWiki": ">= 1.26"
+	},
+	"Hooks": {
+		"UnitTestsList": [
+			"\\Wikibase\\LibHooks::registerPhpUnitTests"
+		],
+		"ResourceLoaderTestModules": [
+			"\\Wikibase\\LibHooks::registerQUnitTests"
+		],
+		"ResourceLoaderRegisterModules": [
+			"\\Wikibase\\LibHooks::onResourceLoaderRegisterModules"
+		],
+		"ExtensionTypes": [
+			"\\Wikibase\\LibHooks::onExtensionTypes"
+		]
+	},
+	"callback": "\\Wikibase\\LibHooks::onRegistration",
+	"MessagesDirs": {
+		"WikibaseLib": [
+			"lib/i18n"
+		]
+	},
+	"AutoloadNamespaces": {
+		"Wikibase\\Lib\\Formatters\\": "lib/includes/Formatters/",
+		"Wikibase\\Lib\\Interactors\\": "lib/includes/Interactors/",
+		"Wikibase\\Lib\\Units\\": "lib/includes/Units/",
+		"Wikibase\\Lib\\Store\\Sql\\": "lib/includes/Store/Sql/",
+		"Wikibase\\Lib\\Tests\\": "lib/tests/phpunit/"
+	},
+	"manifest_version": 2
+}

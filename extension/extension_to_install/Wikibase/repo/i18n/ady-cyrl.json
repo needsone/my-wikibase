@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"SamGamgee",
+			"TheRossatron",
+			"SmartNart12",
+			"GR44 Luc",
+			"Highlander45temp",
+			"Amire80",
+			"Ladsgroup"
+		]
+	},
+	"wikibase-edit": "еӀаз",
+	"wikibase-add": "хэгъахъу",
+	"wikibase-label-empty": "ЦӀэ пари фэусыгъэп",
+	"wikibase-description-empty": "ГурыӀоныгъэ пари итхагъэп",
+	"wikibase-statementsection-statements": "ЕплъыкӀэхэр",
+	"wikibase-sitelinks-special": "НэмыкӀ сайтхэр",
+	"wikibase-statementview-rank-normal": "Ранг нормал",
+	"wikibase-statementview-references-counter": "$1{{PLURAL:$1|лъапсэ|лъапсэхэр}}"
+}

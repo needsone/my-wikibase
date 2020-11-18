@@ -1,0 +1,48 @@
+{
+	"name": "Wikibase",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"doc": "jsduck",
+		"install:bridge": "npm --prefix client/data-bridge ci",
+		"install:tainted-ref": "npm --prefix view/lib/wikibase-tainted-ref ci",
+		"postinstall": "npm run install:bridge && npm run install:tainted-ref",
+		"selenium-daily": "MEDIAWIKI_USER='Selenium user' MW_SERVER=https://wikidata.beta.wmflabs.org:443 MW_SCRIPT_PATH=/w WIKIBASE_PROPERTY_STRING=P443 npm run selenium-test",
+		"selenium-test": "npm-run-all --continue-on-error selenium-test:*",
+		"selenium-test:repo": "wdio repo/tests/selenium/wdio.conf.js",
+		"selenium-test:bridge": "npm --prefix client/data-bridge run selenium-test",
+		"test": "grunt test && npm run test:bridge && npm run test:tainted-ref",
+		"test:bridge": "npm --prefix client/data-bridge test",
+		"test:tainted-ref": "npm --prefix view/lib/wikibase-tainted-ref test"
+	},
+	"devDependencies": {
+		"eslint-config-wikimedia": "0.9.0",
+		"eslint-plugin-compat": "^2.6.3",
+		"eslint-plugin-qunit": "3.3.1",
+		"grunt": "1.0.3",
+		"grunt-banana-checker": "0.6.0",
+		"grunt-eslint": "21.0.0",
+		"grunt-jsonlint": "1.1.0",
+		"grunt-stylelint": "0.10.1",
+		"npm-run-all": "^4.1.5",
+		"stylelint-config-wikimedia": "0.5.0",
+		"vue": "^2.6.10",
+		"wdio-mediawiki": "^0.2.0",
+		"wdio-mocha-framework": "0.6.4",
+		"wdio-spec-reporter": "0.1.4",
+		"wdio-wikibase": "^2.0.0",
+		"webdriverio": "4.13.1"
+	},
+	"eslintIgnore": [
+		"extensions/**",
+		"vendor/**",
+		"view/lib/**",
+		"client/data-bridge/",
+		"lib/resources/lib/**",
+		"lib/tests/qunit/lib/**",
+		"lib/resources/vendor/**"
+	],
+	"browserslist": [
+		"ie 11"
+	]
+}

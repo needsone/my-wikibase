@@ -1,0 +1,23 @@
+/**
+ * @license GNU GPL v2+
+ * @author H. Snater < mediawiki@snater.com >
+ */
+
+/* FIXME: Remove when core's jquery.tipsy.css is fixed. */
+.wikibase-wbtooltip-tip.tipsy-nw .tipsy-arrow,
+.wikibase-wbtooltip-tip.tipsy-ne .tipsy-arrow {
+	top: 0;
+}
+
+.wikibase-wbtooltip-tip.wb-error .tipsy-arrow {
+	/* @embed */
+	background-image: url( images/tipsy-error.png );
+}
+
+.wikibase-wbtooltip-tip.wb-error .tipsy-inner {
+	/* on some host-client combinations the background image is propagated to the inner tooltip
+	container creating a background pattern; this broken behavior is suppressed by implicitly
+	resetting the background image. */
+	background: #fee7e6;
+	border-color: #b32424;
+}

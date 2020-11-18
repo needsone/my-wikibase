@@ -1,0 +1,2 @@
+<http://acme.test/statement/TEST-References-2> <http://www.w3.org/ns/prov#wasDerivedFrom> <http://acme.test/reference/f2693d55e4237eed12e76c87e54f6ae0f3d7080f> .
+<http://acme.test/statement/TEST-References> <http://www.w3.org/ns/prov#wasDerivedFrom> <http://acme.test/reference/f2693d55e4237eed12e76c87e54f6ae0f3d7080f> .

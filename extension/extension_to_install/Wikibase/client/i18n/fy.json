@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robin0van0der0vliet",
+			"PiefPafPier",
+			"Robin van der Vliet",
+			"Sjoerddebruin"
+		]
+	},
+	"tooltip-t-wikibase": "Keppeling nei ferbûn dataopslachitem",
+	"wikibase-comment-update": "{{WBREPONAME}}-item bywurke",
+	"wikibase-comment-sitelink-add": "Taalkeppeling taheakke: $1",
+	"wikibase-comment-sitelink-change": "Taalkeppeling feroare fan $1 nei $2",
+	"wikibase-comment-sitelink-remove": "Taalkeppeling weihelle: $1",
+	"wikibase-dataitem": "{{WBREPONAME}}-item",
+	"wikibase-editlinks": "Keppelings bewurkje",
+	"wikibase-editlinkstitle": "Yntertaalkeppelings bewurkje",
+	"wikibase-addlinkstitle": "Yntertaalkeppelings taheakje",
+	"wikibase-linkitem-addlinks": "Keppelings taheakje",
+	"wikibase-linkitem-input-site": "Taal:",
+	"wikibase-rc-hide-wikidata": "{{WBREPONAME}} $1",
+	"wikibase-rc-hide-wikidata-hide": "ferbergje",
+	"wikibase-rc-hide-wikidata-show": "werjaan",
+	"wikibase-rc-show-wikidata-pref": "Bewurkings fan {{WBREPONAME}} werjaan yn Koartlyn feroare",
+	"wikibase-rc-wikibase-edit-letter": "D",
+	"wikibase-rc-wikibase-edit-title": "Bewurking fan {{WBREPONAME}}",
+	"wikibase-rcfilters-hide-wikibase-label": "Bewurkings fan {{WBREPONAME}}",
+	"wikibase-rcfilters-hide-wikibase-description": "Wizigings dy't ôfkomstich binne fan {{WBREPONAME}}.",
+	"wikibase-watchlist-show-changes-pref": "Bewurkings fan {{WBREPONAME}} werjaan yn jo folchlist",
+	"wikibase-pageinfo-entity-id": "{{WBREPONAME}}-item-ID",
+	"wikibase-pageinfo-entity-id-none": "Gjint",
+	"wikibase-pageinfo-description-central": "Sintrale beskriuwing",
+	"wikibase-pageinfo-entity-usage": "{{WBREPONAME}}-entiteiten brûkt op dizze side",
+	"wikibase-pageinfo-entity-usage-S": "Websteekeppeling",
+	"wikibase-pageinfo-entity-usage-L-with-modifier": "Lebel: $1",
+	"wikibase-otherprojects": "Yn oare projekten",
+	"echo-category-title-wikibase-action": "{{PLURAL:$1|Oansluting|Oanslutings}} op {{WBREPONAME}}"
+}

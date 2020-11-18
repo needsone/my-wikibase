@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<api success="1">
+	<pageinfo/>
+	<reference hash="XXX">
+		<snaks>
+			<property id="$propertyIdUnderTest">
+				<snak snaktype="value" hash="XXX" property="$propertyIdUnderTest" datatype="string">
+					<datavalue value="Val1" type="string"/>
+				</snak>
+				<snak snaktype="value" hash="XXX" property="$propertyIdUnderTest" datatype="string">
+					<datavalue value="Val2" type="string"/>
+				</snak>
+			</property>
+		</snaks>
+		<snaks-order>
+			<property>$propertyIdUnderTest</property>
+		</snaks-order>
+	</reference>
+</api>

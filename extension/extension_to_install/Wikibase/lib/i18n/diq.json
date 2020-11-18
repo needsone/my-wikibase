@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"Erdemaslancan",
+			"Marmase",
+			"Mirzali",
+			"Kumkumuk",
+			"Orbot707",
+			"1917 Ekim Devrimi"
+		]
+	},
+	"wikibase-quantitydetails-amount": "Miqdar",
+	"wikibase-quantitydetails-unit": "Lete",
+	"wikibase-timedetails-time": "Wext",
+	"wikibase-timedetails-timezone": "Wareyê saete",
+	"wikibase-timedetails-calendar": "Teqwim",
+	"wikibase-timedetails-precision": "Hesasiyet",
+	"wikibase-timedetails-before": "Verên",
+	"wikibase-timedetails-after": "Bahdo",
+	"wikibase-globedetails-longitude": "Derganiye",
+	"wikibase-globedetails-latitude": "Verıniye",
+	"wikibase-globedetails-precision": "Hesasiyet",
+	"wikibase-globedetails-globe": "Kure",
+	"wikibase-sitelinks-wikipedia": "Wikipediya",
+	"wikibase-sitelinks-sitename-columnheading": "Zıwan",
+	"wikibase-sitelinks-link-columnheading": "Pela gıreyıne",
+	"wikibase-snakview-snaktypeselector-novalue": "erc çıniyo",
+	"wikibase-tooltip-error-details": "Teferruati",
+	"datatypes-type-string": "La",
+	"datatypes-type-quantity": "Miqdar",
+	"datatypes-type-monolingualtext": "Nuştey yo zıwani",
+	"datatypes-type-multilingualtext": "Nuştey zaf Zıwani",
+	"datatypes-type-number": "Numre",
+	"datatypes-type-mediawiki-title": "Sernamey MediaWiki",
+	"datatypes-type-unknown": "Nêvaciyayo",
+	"datatypes-type-boolean": "Boolean",
+	"datatypes-type-globe-coordinate": "Koordinatê coğrafyayêni",
+	"datatypes-type-time": "Noktay zemani",
+	"datatypes-type-wikibase-item": "Obje",
+	"version-wikibase": "Wikibase"
+}

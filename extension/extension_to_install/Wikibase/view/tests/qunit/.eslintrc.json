@@ -1,0 +1,19 @@
+{
+	"extends": [
+		"wikimedia/qunit",
+		"../../../.eslintrc.json"
+	],
+	"globals": {
+		"sinon": false
+	},
+	"rules": {
+		"no-use-before-define": [
+			"error",
+			{
+				"functions": false
+			}
+		],
+		"qunit/resolve-async": "off",
+		"space-unary-ops": "off"
+	}
+}
