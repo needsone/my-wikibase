@@ -2,7 +2,7 @@ FROM ubuntu:xenial as fetcher
 
 COPY download-extension.sh .
 RUN apt-get update && \
-    apt-get install --yes --no-install-recommends unzip=6.* jq=1.* curl=7.* ca-certificates=201* && \
+    apt-get install --yes --no-install-recommends unzip=6.* composer-plugin-api=1.* jq=1.* curl=7.* ca-certificates=201* && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN bash download-extension.sh Wikibase;\

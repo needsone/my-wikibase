@@ -79,13 +79,13 @@ FROM composer as composer
 COPY --from=collector /var/www/html /var/www/html
 WORKDIR /var/www/html/
 RUN rm /var/www/html/composer.lock
-RUN composer install --no-dev
+RUN composer install --no-dev --no-plugins
 
-FROM wikibase/wikibase:1.34
+FROM needsone/wikibase:1.34
 
-#RUN apt-get update && \
-#    apt-get install --yes --no-install-recommends jq=1.* && \
-#    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install --yes --no-install-recommends jq=1.* && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer /var/www/html /var/www/html
 COPY LocalSettings.php.wikibase-bundle.template /LocalSettings.php.wikibase-bundle.template
